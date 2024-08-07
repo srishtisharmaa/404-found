@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .header-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: white;
+            color: black;
+            height: 60px;
+            padding: 0 20px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 50px;
+        }
+
+        .logo-heading {
+            font-size: 32px;
+            font-weight: bold;
+            margin-left: 10px;
+            color: #41235f;
+            text-decoration: none;;
+            text-decoration: none;
+        }
+
+        .w3-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .lavender-button {
+            background-color: #41235f;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: background-color 0.3s, color 0.3s;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lavender-button:hover {
+            background-color: rgb(217, 164, 243);
+            color: black;
+        }
+
+        .container {
+            width: 300px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 80px auto 20px; /* Center the container and add top margin to avoid overlap with header */
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color:  #41235f;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background-color:rgb(217, 164, 243);
+        }
+
+        .switch {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .custom-footer {
+    background-color: #41235f;
+    color: white;
+    padding: 16px 8px; /* Reduced padding for a smaller footer */
+    text-align: center; /* Center the text */
+}
+
+.container {
+    width: 500px; /* Increased width for the login section */
+    height: 300px;
+    padding: 40px; /* Increased padding for more space */
+    margin: 100px auto 0; /* Adjusted top margin to avoid overlap with header */
+}
+
+/* Optional: Adjust margin and padding of footer content if needed */
+.custom-footer p {
+    margin: 5px 0; /* Reduced margin for footer text */
+}
+
+.custom-footer .w3-xlarge {
+    font-size: 20px; /* Adjust icon size if necessary */
+}
+
+
+        footer {
+            background-color: #41235f;
+            color: white;
+            padding: 32px 16px;
+            margin-top: auto;
+            text-align: center;
+        }
+
+        .footer-contact {
+            margin-top: 48px;
+            text-align: center;
+        }
+
+        .footer-contact p {
+            margin: 0;
+        }
+
+        .footer-contact i {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-bar" id="myNavbar">
+        <!-- Left side: Logo and heading -->
+        <a href="#home" class="logo-container">
+            <img src="logo.png" alt="LOGO" class="logo-img">
+            <span class="logo-heading">MoneyManager</span>
+        </a>
+        
+        <!-- Right side: Buttons -->
+        <div class="w3-right">
+            <a href="#about" class="lavender-button">ABOUT US</a>
+            <a href="features.html" class="lavender-button">FEATURE</a>
+            <a href="help1.html" class="lavender-button">HELP CENTER</a>
+            <a href="#contact" class="lavender-button">CONTACT US</a>
+            <a href="login.html" class="lavender-button">
+                <i class="fa fa-sign-in" style="font-size: 24px;"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="container" id="auth-container">
+        <form id="auth-form">
+            <div id="login-form">
+                <h2>Login</h2>
+                <div class="form-group">
+                    <label for="login-email">Email:</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password:</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <div class="form-group">
+                    <button type="button" onclick="login(event)">Login</button>
+                </div>
+            </div>
+            <div id="registration-form" style="display:none;">
+                <h2>Register</h2>
+                <div class="form-group">
+                    <label for="reg-email">Email:</label>
+                    <input type="email" id="reg-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-password">Password:</label>
+                    <input type="password" id="reg-password" required>
+                </div>
+                <div class="form-group">
+                    <button type="button" onclick="register(event)">Register</button>
+                </div>
+            </div>
+            <div class="switch">
+                <a href="#" onclick="toggleForms(event)">Don't have an account? Register</a>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        <a href="#home" class="lavender-button"><i class="fa fa-arrow-up"></i> To the top</a>
+        <p>&copy; 2024 Money Manager. All rights reserved.</p>
+        
+    </footer>
+
+    <script>
+        function toggleForms(event) {
+            event.preventDefault();
+            const loginForm = document.getElementById('login-form');
+            const registrationForm = document.getElementById('registration-form');
+            const link = event.target;
+
+            if (loginForm.style.display === 'none') {
+                loginForm.style.display = 'block';
+                registrationForm.style.display = 'none';
+                link.textContent = "Don't have an account? Register";
+            } else {
+                loginForm.style.display = 'none';
+                registrationForm.style.display = 'block';
+                link.textContent = "Already have an account? Login";
+            }
+        }
+
+        function login(event) {
+            event.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            // Here, you would usually send this data to your server for verification
+            alert(`Logged in with ${email}`);
+        }
+
+        function register(event) {
+            event.preventDefault();
+            const email = document.getElementById('reg-email').value;
+            const password = document.getElementById('reg-password').value;
+
+            // Here, you would usually send this data to your server for account creation
+            alert(`Registered with ${email}`);
+        }
+    </script>
+</body>
+</html>

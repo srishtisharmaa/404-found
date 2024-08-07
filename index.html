@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeFi Integration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="w3-top">
+        <div class="header-bar" id="myNavbar">
+            <!-- Left side: Logo and heading -->
+            <a href="#home" class="w3-bar-item logo-container">
+                <img src="logo.png" alt="LOGO" class="logo-img">
+                <span class="logo-heading">MoneyManager</span>
+            </a>
+            
+            <!-- Right side: Buttons -->
+            <div class="w3-right">
+                <a href="#about" class="lavender-button">ABOUT US</a>
+                <a href="features.html" class="lavender-button">SERVICES</a>
+                <a href="help1.html" class="lavender-button">HELP CENTER</a>
+                <a href="#contact" class="lavender-button">CONTACT US</a>
+                <a href="login.html" class="lavender-button">
+                    <i class="fa fa-sign-in" style="font-size: 24px;"></i> LOGIN
+                </a>
+            </div>
+            
+            <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+            <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </div>
+    
+    <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+        <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+        <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+        <a href="features.html" onclick="w3_close()" class="w3-bar-item w3-button">FEATURE</a>
+        <a href="#pricing" onclick="w3_close()" class="w3-bar-item w3-button">SERVICES</a>
+        <a href="#help" onclick="w3_close()" class="w3-bar-item w3-button">HELP CENTER</a>
+        <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT US</a>
+    </nav>
+    
+    <div class="container">
+        <h1>DeFi Integration</h1>
+        <button id="connectWallet" class="button">Connect Wallet</button>
+        <button id="deposit" class="button">Deposit</button>
+        <button id="borrow" class="button">Borrow</button>
+        <p id="status"></p>
+    </div>
+    
+    <div class="footer">
+        <p>&copy; 2024 MoneyManager. All rights reserved.</p>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/ethers/dist/ethers.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
